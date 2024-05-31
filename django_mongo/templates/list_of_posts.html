@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <center>
+    <h1>Список статей</h1>
+    <a href="{% url 'post_create' %}">Опубликовать статью</a>
+    </center>
+    <ul>
+        {% for post in posts %}
+            <li><a href="{% url 'post_detail' post.pk %}">{{ post.title_news }}</a>
+        {% endfor %}
+    </ul>
+</body>
+</html>

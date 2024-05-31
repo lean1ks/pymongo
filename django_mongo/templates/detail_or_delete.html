@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <h1>{{ post.title_news }}</h1>
+    <p>{{ post.category }}</p>
+    <p>{{ post.data }}</p>
+    <p>{{ post.url_img }}</p>
+
+    <h2>Редактирование статьи</h2>
+    <form method="post">
+        {% csrf_token %}
+        <label for="title">Заголовок:</label>
+        <input type="text" id="title" name="title" value="{{ post.title_news }}">
+        <label for="content">Содержание:</label>
+        <textarea id="category" name="category">{{ post.category }}</textarea>
+        <textarea id="data" name="data">{{ post.data }}</textarea>
+        <textarea id="url_img" name="url_img">{{ post.url_img }}</textarea>
+        <button type="submit" name="update">Сохранить</button>
+    </form>
+
+    <h2>Удалить статью</h2>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" name="delete">Удалить</button>
+    </form>
+
+    <a href="{% url 'post_list' %}">Назад</a>
+</body>
+</html>
